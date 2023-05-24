@@ -1,27 +1,7 @@
 import Foundation
 
-func openURL(_ url: URL) throws {
-    let process = Process()
-    process.executableURL = URL(fileURLWithPath: "/usr/bin/open")
-    process.arguments = [url.absoluteString]
-
-    try process.run()
-    process.waitUntilExit()
-}
-
 struct InvalidURLError: Error {}
 struct InvalidQueryError: Error {}
-
-func searchDuckDuckGo(query: String) throws {
-    let queryEncoded = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? query
-    let urlString = "https://duckduckgo.com/?q=\(queryEncoded)"
-
-    if let url = URL(string: urlString) {
-        try openURL(url)
-    } else {
-        throw InvalidURLError()
-    }
-}
 
 @main
 public enum Run {
@@ -38,5 +18,25 @@ public enum Run {
         } catch {
             print("Failed to open URL: \(error)")
         }
+    }
+}
+
+private func openURL(_ url: URL) throws {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/usr/bin/open")
+    process.arguments = [url.absoluteString]
+
+    try process.run()
+    process.waitUntilExit()
+}
+
+private func searchDuckDuckGo(query: String) throws {
+    let queryEncoded = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? query
+    let urlString = "https://duckduckgo.com/?q=\(queryEncoded)"
+
+    if let url = URL(string: urlString) {
+        try openURL(url)
+    } else {
+        throw InvalidURLError()
     }
 }
