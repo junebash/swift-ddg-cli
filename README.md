@@ -9,7 +9,7 @@ A DuckDuckGo CLI written in Swift.
 
 ## Install
 
-If you have [`just`](https://github.com/casey/just) installed:
+### Using [`just`](https://github.com/casey/just)
 
 ```bash
 [clone repo]
@@ -29,7 +29,7 @@ If you don't provide a PATH, it will install to `~/.bin/` by default
 
 ---
 
-If you don't have `just installed`,
+### Manual
 
 1. `cd` into git repo directory
 2. `swift build`
