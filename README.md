@@ -25,7 +25,7 @@ cd swift-ddg-cli
 just install ~/my_path
 ```
 
-If you don't provide a PATH, it will install to `~/.bin/` by default
+If you don't provide a PATH, it will install to `~/.local/bin/` by default
 
 ---
 
