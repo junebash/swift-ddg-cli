@@ -6,13 +6,19 @@ let package = Package(
     name: "ddg-cli",
     platforms: [.macOS(.v13)],
     products: [
-        .executable(name: "ddg", targets: ["ddg-cli"])
+        .executable(name: "ddg", targets: ["ddg"])
     ],
     dependencies: [],
     targets: [
         .executableTarget(
-            name: "ddg-cli",
-            dependencies: []
+            name: "ddg",
+            dependencies: [],
+            path: "./Sources"
         ),
+        .testTarget(
+          name: "Tests",
+          dependencies: ["ddg"],
+          path: "./Tests"
+        )
     ]
 )
