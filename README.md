@@ -39,6 +39,6 @@ If you don't provide a PATH, it will install to `~/.local/bin/` by default
 
 ## Usage
 
-`ddg Swift programming language -g`
+`ddg Swift programming language ^g`
 
-Note that `-` replaces `!` for DuckDuckGo bang operators.
+Note that `^` replaces `!` for DuckDuckGo bang operators.

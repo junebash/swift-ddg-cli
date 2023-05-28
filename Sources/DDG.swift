@@ -24,9 +24,10 @@ public func parseQueryStringFromCommandLineArguments(_ arguments: [String]) thro
     .nonEmpty
     .orThrow(EmptyArgumentsError())
     .joined(separator: " ")
-    .replacingOccurrences(of: "-", with: "!")
-    .addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+    .replacingOccurrences(of: "^", with: "!")
+    .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     .orThrow(InvalidQueryError())
+    .replacingOccurrences(of: "%20", with: "+")
     .nonEmpty
     .orThrow(InvalidQueryError())
 }
